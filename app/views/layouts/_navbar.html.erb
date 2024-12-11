@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="me-auto">
+                <p class="text-white fs-4 pl-5">Rails Practice</p>
+            </div>
+
+            <div class='d-flex gap-4 right-4 me-4'>
+                <button class="btn btn-primary">Sign up</button>
+                <% if logged_in? %>
+                <%= form_with url: logout_path, method: :delete, class: "d-inline" do %>
+                <button type="submit" class="btn btn-primary">Logout</button>
+                <% end %>
+                <% else %>
+                <button class="btn btn-primary">Login</button>
+                <% end %>
+            </div>
+
+        </div>
+    </div>
+</nav>
