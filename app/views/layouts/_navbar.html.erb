@@ -1,21 +1,25 @@
-<nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="me-auto">
-                <p class="text-white fs-4 pl-5">Rails Practice</p>
-            </div>
+<nav class="navbar navbar-expand-lg bg-dark" data-controller= "hi">
+  <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="me-auto">
+              <p class="text-white fs-4 pl-5">Rails Practice</p>
+          </div>
 
-            <div class='d-flex gap-4 right-4 me-4'>
-                <button class="btn btn-primary">Sign up</button>
-                <% if logged_in? %>
+          <div class='d-flex gap-4 right-4 me-4'>
+              <%= form_with url: signup_path, method: :get, class: "d-inline" do %>
+                <button type="submit" class="btn btn-primary">Sign up</button>
+              <% end %>
+              <% if logged_in? %>
                 <%= form_with url: logout_path, method: :delete, class: "d-inline" do %>
-                <button type="submit" class="btn btn-primary">Logout</button>
+                  <button type="submit" class="btn btn-primary">Logout</button>
                 <% end %>
-                <% else %>
-                <button class="btn btn-primary">Login</button>
+              <% else %>
+                <%= form_with url: login_path, method: :get, class: "d-inline" do %>
+                  <button type="submit" class="btn btn-primary">Login</button>
                 <% end %>
-            </div>
+              <% end %>
+          </div>
 
-        </div>
-    </div>
+      </div>
+  </div>
 </nav>
