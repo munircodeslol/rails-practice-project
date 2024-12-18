@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   root "user#index"
 
+  get "signup", to: "user#new"
+  post "signup", to: "user#new"
+
   get "login", to: "sessions#login"
   post "login",  to: "sessions#create"
 
